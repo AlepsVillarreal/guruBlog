@@ -3,12 +3,22 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Djangonauts</title>
+        <title>guru Blog</title>
         <link rel="stylesheet" href="{% static 'styles.css' %}">
     </head>
     <body>
         <header class="wrapper">
-            <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logosurf.png' %}" alt="djangonautic" /></a></h1>
+            <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logosurf.png' %}" alt="logosurf.png" /></a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
         </header>
         <div class="wrapper">
             {% block content %}
