@@ -3,26 +3,25 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>guru Blog</title>
+        <title>Djangonauts</title>
         <link rel="stylesheet" href="{% static 'styles.css' %}">
     </head>
     <body>
         <header class="wrapper">
-            <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logosurf.png' %}" alt="logosurf.png" /></a></h1>
+            <h1><a href="{% url 'home' %}"><img src="{% static 'surfspace.png' %}" alt="Nerd shit" /></a></h1>
             <nav>
                 <ul>
-                    {% if user.is_authenticated%}
+                    {% if user.is_authenticated %}
                     <li>
                         <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                             {% csrf_token %}
                             <button type="submit">Logout</button>
                         </form>
                     </li>
-                    <li><a href="{% url 'articles:create' %}">New Article</li>
-                        
+                    <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
                     {% else %}
-                        <li><a href="{% url 'accounts:login' %}">Login</li>
-                        <li><a href="{% url 'accounts:signup' %}">Signup</li>
+                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
                     {% endif %}
                 </ul>
             </nav>
