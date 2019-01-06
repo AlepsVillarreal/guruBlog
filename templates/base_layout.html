@@ -11,12 +11,19 @@
             <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logosurf.png' %}" alt="logosurf.png" /></a></h1>
             <nav>
                 <ul>
+                    {% if user.is_authenticated%}
                     <li>
                         <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                             {% csrf_token %}
                             <button type="submit">Logout</button>
                         </form>
                     </li>
+                    <li><a href="{% url 'articles:create' %}">New Article</li>
+                        
+                    {% else %}
+                        <li><a href="{% url 'accounts:login' %}">Login</li>
+                        <li><a href="{% url 'accounts:signup' %}">Signup</li>
+                    {% endif %}
                 </ul>
             </nav>
         </header>
