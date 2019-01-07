@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^articles/', include('articles.urls')),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^categories/', include('categories.urls')),
     url(r'^about/$', views.about),
     url(r'^$', article_views.article_list, name="home"),
 ]
